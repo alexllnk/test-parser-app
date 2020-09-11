@@ -17,4 +17,10 @@
                 WHERE title IN ('USA', 'Ukraine'));
 
 3. путь страницы формы калькулятора: "/calc" ( класс App\Helpers\CampaignCalc )
-4. путь страницы формы парсера: "/parser" ( класс App\Parsers\CommentParser ) 
+4. путь страницы формы парсера: "/parser" ( класс App\Parsers\CommentParser ) ;
+отправка письма с данными парсера выполняется с помощью API сервиса Mailgun, настройки
+парсера выполняются в методе его вызова (\App\Http\Controllers\CommentController::parser)
+
+------------------------
+для удобства добавлено сидерование 10 компаний со связанными SMS локациями для каждой из них
+ 

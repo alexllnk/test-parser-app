@@ -21,10 +21,10 @@ class CommentController extends Controller
             return view('parser.create');
         } elseif (request()->isMethod('post')) {
             $parser = new CommentParser();
-            $parser->parse('GET', 'https://www.fps.com.ua/vidguky/?thread_id=26&selected_section=discussion&page=', 5);
+            $parser->parse('GET', 'https://www.fps.com.ua/vidguky/?thread_id=26&selected_section=discussion&page=', 1);
             if (!empty($comments = $parser->repo->getComments())) {
                 try {
-                    Mail::to('st3am.pwr@gmail.com')->send(new NewComments($parser->repo->getComments()));
+                    Mail::to('example@gmail.com')->send(new NewComments($parser->repo->getComments()));
 
                 } catch (\Exception $exception) {
                     $mailerRes = $exception->getMessage();
